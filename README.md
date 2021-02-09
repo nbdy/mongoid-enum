@@ -18,7 +18,7 @@ and a few other bits-and-bobs.
 Add this to your Gemfile:
 
 ```ruby
-gem "mongoid-enum"
+gem 'mongoid-enum'
 ```
 
 And then run `bundle install`.

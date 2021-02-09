@@ -23,10 +23,10 @@ module Mongoid
       private
       def default_options(values)
         {
-          :multiple => false,
-          :default  => values.first,
-          :required => true,
-          :validate => true
+          multiple: false,
+          default: values.first,
+          required: true,
+          validate: true
         }
       end
 
@@ -37,15 +37,15 @@ module Mongoid
 
       def create_field(field_name, options)
         type = options[:multiple] && Array || Symbol
-        field field_name, :type => type, :default => options[:default]
+        field field_name, type: type, default: options[:default]
       end
 
       def create_validations(field_name, values, options)
         if options[:multiple] && options[:validate]
-          validates field_name, :'mongoid/enum/validators/multiple' => { :in => values.map(&:to_sym), :allow_nil => !options[:required] }
-        #FIXME: Shouldn't this be `elsif options[:validate]` ???
+          validates field_name, 'mongoid/enum/validators/multiple': { in: values.map(&:to_sym), allow_nil: !options[:required] }
+        # FIXME: Shouldn't this be `elsif options[:validate]` ???
         elsif validate
-          validates field_name, :inclusion => {:in => values.map(&:to_sym)}, :allow_nil => !options[:required]
+          validates field_name, inclusion: {in: values.map(&:to_sym)}, allow_nil: !options[:required]
         end
       end
 
