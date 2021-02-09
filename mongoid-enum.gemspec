@@ -22,7 +22,7 @@ the cruft in your models and make the world a happier place at the same time."
 
   spec.add_runtime_dependency 'mongoid', '< 8.0'
 
-  spec.add_development_dependency 'bundler', '~> 1.3'
+  spec.add_development_dependency 'bundler', '< 3.0'
   spec.add_development_dependency 'guard-rspec', '~> 4.6.2'
   spec.add_development_dependency 'mongoid-rspec', '< 8.0'
   spec.add_development_dependency 'rake'
